@@ -33,7 +33,11 @@ def send_welcome(message):
     tanques = response.json()
     print(f'json_response: {tanques}')
     for tank in tanques:
-        tank_txt += "Tanque: " + tank['vr_tanque']
+        tank_txt += "Tanque: " + tank['vr_tanque'] + "\n"
+        "Fecha: " + tank['vr_fecha'] + "\n"
+        "Volumen: " + tank['vr_volumen'] + "\n"
+        "Volumen CT: " + tank['vr_vol_ct'] + "\n"
+        "Agua: " + tank['vr_agua'] + "\n"
         
     
     bot.reply_to(message, tank_txt)
