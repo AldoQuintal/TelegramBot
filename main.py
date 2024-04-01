@@ -24,9 +24,9 @@ def send_welcome(message):
 
 
 @bot.message_handler(commands=['inventario'])
-def send_welcome(message):
+def consulta_inventario(message):
     tank_txt = ""
-    print("### recibió el msj de start")
+    print("### recibió el msj de inventario")
     try:
         response = requests.get(url=api_inv,auth=None,verify=False)
         print(f'Response: {response}')
@@ -42,7 +42,19 @@ def send_welcome(message):
     except:
         bot.reply_to(message, "Tengo problemas para comunicarme con los tanques en este momento")
     
+
+@bot.message_handler(commands=['entrega'])
+def consulta_ultima_entrega(message):
+    print("### Recibió el msj de entrga")
+    
+    try:
+        response = requests.get(url=api_inv,auth=None,verify=False)
+        print(f'Response: {response}')
+    
+    except:
+        bot.reply_to(message, "Tengo problemas para comunicarme con los tanques en este momento")
         
+    
     
 
 @bot.message_handler(func=lambda m: True)
