@@ -2,10 +2,9 @@ import telebot
 import requests
 
 TOKEN = '6820969878:AAHM9yHnZ_LQF_PS0kyWWWFqSdflweEx75g'
-url = 'https://10.10.208:8000/api/entregas'
 
-api_inv = 'http://10.10.208:8000/api/inventarios'
-api_entr = 'http://10.10.208:8000/api/entregas'
+api_inv = 'http://localhost:8000/api/inventarios'
+api_entr = 'http://localhost:8000/api/entregas'
 
 
 
