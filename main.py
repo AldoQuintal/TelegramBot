@@ -20,6 +20,23 @@ def send_welcome(message):
     tanques = response.json()
     print(f'json_response: {tanques}')
     bot.reply_to(message, 'Hola bola')
+    
+
+
+@bot.message_handler(commands=['inventario'])
+def send_welcome(message):
+    tank_txt = ""
+    print("### recibió el msj de start")
+    response = requests.get(url=api_inv,auth=None,verify=False)
+    
+    print(f'Response: {response}')
+    tanques = response.json()
+    print(f'json_response: {tanques}')
+    for tank in tanques:
+        tank_txt += str(tank)
+        
+    
+    bot.reply_to(message, tank_txt)
         
     
 
