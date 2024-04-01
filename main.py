@@ -15,8 +15,9 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    
+    print("### recibió el msj de start")
     response = requests.get(url=api_inv,auth=None,verify=False)
+    print(f'Response: {response}')
     tanques = response.json()
     print(f'json_response: {tanques}')
     bot.reply_to(message, 'Hola bola')
