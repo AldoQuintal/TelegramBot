@@ -29,7 +29,7 @@ def send_welcome(message):
     print("### recibió el msj de start")
     response = requests.get(url=api_inv,auth=None,verify=False)
     print(f'Response: {response}')
-    if response == 200:
+    if response.status_code == 200:
         tanques = response.json()
         print(f'json_response: {tanques}')
         for tank in tanques:
