@@ -45,11 +45,18 @@ def consulta_inventario(message):
 
 @bot.message_handler(commands=['entrega'])
 def consulta_ultima_entrega(message):
+    enterga_txt = ""
     print("### Recibió el msj de entrga")
     
     try:
-        response = requests.get(url=api_inv,auth=None,verify=False)
+        response = requests.get(url=api_entr,auth=None,verify=False)
         print(f'Response: {response}')
+        if response.status_code == 200:
+            entregas = response.json()
+            print(f'Entregas en el response: {entregas}')
+            for entrega in entregas:
+                print(entrega)
+                
     
     except:
         bot.reply_to(message, "Tengo problemas para comunicarme con los tanques en este momento")
