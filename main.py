@@ -27,18 +27,19 @@ def send_welcome(message):
 def send_welcome(message):
     tank_txt = ""
     print("### recibió el msj de start")
-    response = requests.get(url=api_inv,auth=None,verify=False)
-    print(f'Response: {response}')
-    if response.status_code == 200:
-        tanques = response.json()
-        print(f'json_response: {tanques}')
-        for tank in tanques:
-            
-            tank_txt += "Tanque: " + tank['vr_tanque'] + "\n" + "Fecha: " + tank['vr_fecha'] + "\n" + "Volumen: " + tank['vr_volumen'] + "\n" + "Volumen CT: " + tank['vr_vol_ct'] + "\n" + "Agua: " + tank['vr_agua'] + "\n" + "Temperatura: " + tank['vr_temp'] + "\n" + "\n"
+    try:
+        response = requests.get(url=api_inv,auth=None,verify=False)
+        print(f'Response: {response}')
+        if response.status_code == 200:
+            tanques = response.json()
+            print(f'json_response: {tanques}')
+            for tank in tanques:
+                
+                tank_txt += "Tanque: " + tank['vr_tanque'] + "\n" + "Fecha: " + tank['vr_fecha'] + "\n" + "Volumen: " + tank['vr_volumen'] + "\n" + "Volumen CT: " + tank['vr_vol_ct'] + "\n" + "Agua: " + tank['vr_agua'] + "\n" + "Temperatura: " + tank['vr_temp'] + "\n" + "\n"
 
-        bot.reply_to(message, tank_txt)
+            bot.reply_to(message, tank_txt)
     
-    else:
+    except:
         bot.reply_to(message, "Tengo problemas para comunicarme con los tanques en este momento")
     
         
