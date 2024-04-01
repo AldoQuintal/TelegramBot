@@ -65,6 +65,13 @@ def consulta_ultima_entrega(message):
         bot.reply_to(message, "Tengo problemas para comunicarme con los tanques en este momento")
         
     
+bot.message_handler(commands=['help'])
+def ayuda(message):
+    entrega_txt = ""
+    print("### Recibió el msj de ayuda")
+    
+    bot.reply_to(message, "Utiliza los comandos de /inventario y /entrega para acceder a la info de los tanques")
+    
     
 
 @bot.message_handler(func=lambda m: True)
