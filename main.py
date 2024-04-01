@@ -28,8 +28,8 @@ def send_welcome(message):
     tank_txt = ""
     print("### recibió el msj de start")
     response = requests.get(url=api_inv,auth=None,verify=False)
+    print(f'Response: {response}')
     if response == 200:
-        print(f'Response: {response}')
         tanques = response.json()
         print(f'json_response: {tanques}')
         for tank in tanques:
