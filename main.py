@@ -1,7 +1,7 @@
 import telebot
 import requests
 
-TOKEN = '6820969878:AAHM9yHnZ_LQF_PS0kyWWWFqSdflweEx75g'
+TOKEN = '7059993827:AAFvWidGXygSdYNv9qASiiTGjivmN64-mNY'
 
 api_inv = 'http://localhost:8000/api/inventarios'
 api_entr = 'http://localhost:8000/api/entregas'
