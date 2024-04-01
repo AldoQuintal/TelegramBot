@@ -45,7 +45,7 @@ def consulta_inventario(message):
 
 @bot.message_handler(commands=['entrega'])
 def consulta_ultima_entrega(message):
-    enterga_txt = ""
+    entrega_txt = ""
     print("### Recibió el msj de entrga")
     
     try:
@@ -56,7 +56,10 @@ def consulta_ultima_entrega(message):
             print(f'Entregas en el response: {entregas}')
             for entrega in entregas:
                 print(entrega)
-                
+            
+            entrega_txt += "Tanque: " + entrega['vr_tanque'] + "\n" + "Fecha inicial: " + entrega['fecha_ini'] + "\n" + "Fecha final: " + entrega['fecha_fin'] + "\n" + "Volumen inicial: " + entrega['vol_ini'] + "\n" + "Volumen final: " + entrega['vol_fin'] + "\n" + "Volumen CT inicial: " + entrega['vol_ct_ini'] + "\n" + "Volumen CT final: " + entrega['vol_ct_fin'] + "\n" + "Agua inicial: " + entrega['agua_ini'] + "\n" + "Agua final: " + entrega['agua_fin'] + "\n" + "Temperatura inicial: " + entrega['temp_ini'] + "\n" + "Temperatura final: " + entrega['temp_fin'] + "\n" + "Aumento neto: " + entrega['aum_neto'] + "\n" + "Aumento bruto: " + entrega['aum_bruto'] + "\n" + "Clave de producto: " + entrega['clv_prd'] + "\n"
+            
+            bot.reply_to(message, entrega_txt)
     
     except:
         bot.reply_to(message, "Tengo problemas para comunicarme con los tanques en este momento")
